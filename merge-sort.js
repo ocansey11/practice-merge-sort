@@ -29,7 +29,6 @@ function mergeSort(arr) {
 
 }
 
-
 // Takes in two sorted arrays and returns them merged into one
 function merge(arrA, arrB) {
   // Create an empty return array
@@ -41,22 +40,22 @@ function merge(arrA, arrB) {
 
   // While there are still values in each array...
   while(arrA.length !== 0 && arrB.length!== 0){
+
     // Compare the first values of each array
     // Add the smaller value to the return array
     // Move the pointer to the next value in that array
-    if(pointerA < pointerB || pointerB == undefined){
+    if(pointerA < pointerB ){
     results.push(pointerA)
     arrA.splice(0,1)
     pointerA = arrA[0]
     }
-    if(pointerA > pointerB || pointerA == undefined){
+    if(pointerA > pointerB){
     results.push(pointerB)
     arrB.splice(0,1)
     pointerB = arrB[0]
     }
   }
   // Return the return array
-  // during the recursion, some split arrays either arrA or B have only 1 value and are returned from the stack due to the base case(before merging). we need to add them to the results along the way.
   results =  results.concat(arrA).concat(arrB)
   return results
 }
